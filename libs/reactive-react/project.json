@@ -1,0 +1,43 @@
+{
+  "root": "libs/reactive-react",
+  "sourceRoot": "libs/reactive-react/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/reactive-react",
+        "tsConfig": "libs/reactive-react/tsconfig.lib.json",
+        "project": "libs/reactive-react/package.json",
+        "entryFile": "libs/reactive-react/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/reactive-react/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/reactive-react/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/reactive-react"],
+      "options": {
+        "jestConfig": "libs/reactive-react/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
