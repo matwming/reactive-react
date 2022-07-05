@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { BehaviorSubject, map } from "rxjs";
-import AsyncPipe from "../async-pipe";
+import AsyncPipe from "@reactive-react";
 
 // data source, change by call next, get by call subscribe
 const aboutMeInfoData = new BehaviorSubject({

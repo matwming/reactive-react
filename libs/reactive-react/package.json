@@ -1,4 +1,17 @@
 {
-  "name": "reactive-react",
-  "version": "0.0.1"
+  "name": "@reactive-react",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "react": "16.8",
+    "react-dom": "16.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matwming/reactive-react"
+  },
+  "keywords": [
+    "Reactive",
+    "RxJS for react"
+  ],
+  "author": "Ming Wu <matwming114@gmail.com>"
 }
