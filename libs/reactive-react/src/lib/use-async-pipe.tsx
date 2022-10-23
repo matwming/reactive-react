@@ -1,28 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { Observable, Subject, takeUntil } from 'rxjs';
+
 /**
- * @values: this is an observable value
- *
+ * @values: accepts an observable
  * **/
 
-interface IValues$ {
-  subscribe: (value: any) => any
-}
-
-export function AsyncPipe({ values$ }:{values$:IValues$}) {
+function useAsyncPipe({ values$ }: { values$: Observable<any> }) {
   const [value, setValue] = useState(null);
+  const stop$ = new Subject<void>();
+
   useEffect(() => {
-    const sub = values$.subscribe((value:any) => {
-      //console.log("storeValue", value);
+    const sub = values$.pipe(takeUntil(stop$)).subscribe((value: any) => {
       setValue(value);
     });
 
     return () => {
-      if (sub) {
-        sub.unsubscribe();
-      }
+      stop$.next();
+      stop$.complete();
     };
   }, []);
 
   return value;
 }
 
+export default useAsyncPipe;

@@ -16,7 +16,7 @@
     "regenerator-runtime": "0.13.7",
     "rxjs": "^7.5.5",
     "tslib": "^2.0.0",
-    "@reactive-react": "file:./libs/reactive-react/src"
+    "reactive-react": "file:./libs/reactive-react/src"
   },
   "devDependencies": {
     "@nrwl/cli": "13.10.6",
